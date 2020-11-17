@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const reviewRouter = require('./reviewRoutes');
+
 const {
   getAllTours,
   createTour,
@@ -14,6 +16,8 @@ const {
 } = require('../controllers/tourController');
 
 const { protect, restrictTo } = require('../controllers/authController');
+
+router.use('/:tourId/reviews', reviewRouter);
 
 router.route('/top-5-cheap').get(aliasTopTours, getAllTours);
 
