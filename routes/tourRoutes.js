@@ -15,6 +15,7 @@ const {
   getMontlyPlan,
   getToursWithin,
   getDistances,
+  getTourBySlug,
 } = require('../controllers/tourController');
 
 const { protect, restrictTo } = require('../controllers/authController');
@@ -45,4 +46,5 @@ router
   .patch(protect, restrictTo('admin', 'lead-guide'), updateTour)
   .delete(protect, restrictTo('admin', 'lead-guide'), deleteTour);
 
+router.route('/tour/:slug').get(getTour);
 module.exports = router;
