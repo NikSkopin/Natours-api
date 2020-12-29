@@ -15,10 +15,11 @@ const {
   getMontlyPlan,
   getToursWithin,
   getDistances,
-  getTourBySlug,
+  getMyTours,
 } = require('../controllers/tourController');
 
 const { protect, restrictTo } = require('../controllers/authController');
+const { createBookingCheckout } = require('../controllers/bookingController');
 
 router.use('/:tourId/reviews', reviewRouter);
 
@@ -37,8 +38,10 @@ router.route('/distances/:latlng/unit/:unit').get(getDistances);
 
 router
   .route('/')
-  .get(getAllTours)
+  .get(createBookingCheckout, getAllTours)
   .post(protect, restrictTo('admin', 'lead-guide'), createTour);
+
+router.route('/my-tours/').get(protect, getMyTours);
 
 router
   .route('/:id')
@@ -47,4 +50,5 @@ router
   .delete(protect, restrictTo('admin', 'lead-guide'), deleteTour);
 
 router.route('/tour/:slug').get(getTour);
+
 module.exports = router;

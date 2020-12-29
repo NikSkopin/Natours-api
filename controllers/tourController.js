@@ -1,4 +1,5 @@
 const Tour = require('../models/tourModel');
+const Booking = require('../models/bookingModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 const AppError = require('../utils/appError');
@@ -160,5 +161,21 @@ exports.getDistances = catchAsync(async (req, res, next) => {
     data: {
       data: distances,
     },
+  });
+});
+
+exports.getMyTours = catchAsync(async (req, res, next) => {
+  // find all bookings
+  const bookings = await Booking.find({ user: req.user.id });
+
+  // find tours with the returned IDs
+  const tourIDs = bookings.map((el) => el.tour);
+
+  const tours = await Tour.find({ _id: { $in: tourIDs } });
+  // console.log(tours);
+
+  res.status(200).json({
+    status: 'success',
+    data: tours,
   });
 });
