@@ -13,10 +13,10 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     // This is only temporary before we use stripe webhooks.
-    success_url: `http://localhost:8080/?tour=${req.params.tourID}&user=${req.user.id}&price=${tour.price}`,
-    // success_url: `${req.protocol}://${req.get('host')}/?tour=${
-    //   req.params.tourID
-    // }&user=${req.user.id}&price=${tour.price}`,
+    // success_url: `http://localhost:8080/?tour=${req.params.tourID}&user=${req.user.id}&price=${tour.price}`,
+    success_url: `${req.protocol}://${req.get('host')}/?tour=${
+      req.params.tourID
+    }&user=${req.user.id}&price=${tour.price}`,
     cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
     customer_email: req.user.email,
     client_reference_id: req.params.tourID,
