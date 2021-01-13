@@ -4,3 +4,4 @@ config.env
 .prettierrc
 .eslint.json
 ToDo.txt
+dist/

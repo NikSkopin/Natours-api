@@ -31,7 +31,7 @@ const app = require('./app');
 const port = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('./client/dist'));
+  app.use(express.static('client/dist'));
 }
 
 const server = app.listen(port, () => {
