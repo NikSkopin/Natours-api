@@ -18,9 +18,17 @@ const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 
 const app = express();
+app.use(require('connect-history-api-fallback')());
+
+if (process.env.NODE_ENV === 'production') {
+  const distDir = path.join(__dirname, 'client/dist');
+  app.use(express.static(distDir));
+}
+const distDir = path.join(__dirname, 'client/dist');
+app.use(express.static(distDir));
 
 app.set('view engine', 'pug');
-app.set('vuews', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 
 // Global middleware
 //Serving static files
@@ -89,6 +97,10 @@ app.use((req, res, next) => {
 });
 
 //mounting routers
+app.get('/', function (req, res) {
+  res.sendFile(distDir + 'index.html');
+});
+
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
