@@ -34,13 +34,16 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-const corsOptions = {
-  origin: 'http://localhost:8080',
-  credentials: true,
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: 'https://localhost:8080',
+//   credentials: true,
+//   optionsSuccessStatus: 200,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.user(cors());
+app.options('*', cors());
 
 //Limit request from same API
 const limiter = rateLimit({
