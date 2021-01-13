@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const path = require('path');
 
 const dotenv = require('dotenv');
 
@@ -31,7 +32,8 @@ const app = require('./app');
 const port = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/dist'));
+  const distDir = path.join(__dirname, 'client/dist');
+  app.use(express.static(distDir));
 }
 
 const server = app.listen(port, () => {
