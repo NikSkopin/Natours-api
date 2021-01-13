@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // app.use(cors(corsOptions));
 
-app.user(cors());
+app.use(cors());
 app.options('*', cors());
 
 //Limit request from same API
