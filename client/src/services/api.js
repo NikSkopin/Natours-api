@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export default () => {
   const url = axios.create({
-    baseURL: 'http://localhost:3000/api/v1/',
-    withCredentials: true,
+    baseURL: 'https://hidden-springs-81084.herokuapp.com/api/v1/',
+    // withCredentials: true,
   });
   return url;
 };

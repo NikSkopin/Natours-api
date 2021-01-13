@@ -18,14 +18,12 @@ const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 
 const app = express();
-app.use(require('connect-history-api-fallback')());
+// app.use(require('connect-history-api-fallback')());
 
+const distDir = path.join(__dirname, 'client/dist');
 if (process.env.NODE_ENV === 'production') {
-  const distDir = path.join(__dirname, 'client/dist');
   app.use(express.static(distDir));
 }
-const distDir = path.join(__dirname, 'client/dist');
-app.use(express.static(distDir));
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -43,7 +41,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // const corsOptions = {
-//   origin: 'https://localhost:8080',
+//   origin: 'https://hidden-springs-81084.herokuapp.com/',
 //   credentials: true,
 //   optionsSuccessStatus: 200,
 // };
@@ -98,7 +96,7 @@ app.use((req, res, next) => {
 
 //mounting routers
 app.get('/', function (req, res) {
-  res.sendFile(distDir + 'index.html');
+  res.sendFile(path.join(distDir, 'index.html'));
 });
 
 app.use('/api/v1/tours', tourRouter);
