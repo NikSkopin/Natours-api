@@ -1,0 +1,35 @@
+.footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: $background-color;
+  font-size: 1.2rem;
+  padding: 2rem 1rem 2rem 1rem;
+
+  &__logo {
+    margin-bottom: 0.5rem;
+    & img {
+      height: 3rem;
+    }
+  }
+
+  &__nav {
+    list-style: none;
+    display: flex;
+
+    & li {
+      margin: 0 0.6rem;
+    }
+
+    & a {
+      text-decoration: none;
+      color: $secondary-color;
+    }
+  }
+
+  &__copyright {
+    margin-top: 1rem;
+  }
+}

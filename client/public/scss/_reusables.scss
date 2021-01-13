@@ -1,0 +1,202 @@
+.main {
+  background-color: $background-color;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: $accent-color;
+  color: $primary-color;
+  font-size: 1.6rem;
+  padding: 1.4rem 3rem;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-weight: 400;
+  backface-visibility: hidden;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: #2e864b;
+  }
+
+  &__white {
+    background-color: $primary-color;
+    color: $secondary-color;
+    &::after {
+      background-color: $primary-color;
+    }
+  }
+  &__small {
+    padding: 1.25rem 3rem;
+    font-size: 1.2rem;
+  }
+}
+
+.heading-primary,
+.heading-tertirary {
+  color: $primary-color;
+  text-transform: uppercase;
+  font-weight: 300;
+
+  & span {
+    padding: 1rem 1.5rem;
+    line-height: 1;
+    box-decoration-break: clone;
+
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(125, 213, 111, 0.85),
+      rgba(40, 180, 135, 0.85)
+    );
+  }
+}
+
+.heading-primary {
+  font-size: 2rem;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.heading-secondary {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7dd56f, #28b487);
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.1rem;
+  line-height: 1.3;
+  display: inline-block;
+}
+
+.heading-tertirary {
+  font-size: 2.75rem;
+  text-align: right;
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  width: 70%;
+  z-index: 10;
+}
+
+.section {
+  &-header {
+    position: relative;
+    height: 50vw;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--section-rotate)),
+      0 100%
+    );
+  }
+  &-description {
+    background-color: #fcfcfc;
+    margin-top: calc(0px - var(--section-rotate));
+    display: flex;
+    & > * {
+      padding: 0 8vw;
+      padding-top: 14vw;
+      padding-bottom: calc(1vw + var(--section-rotate));
+      flex: 0 0 50%;
+    }
+  }
+}
+
+.line {
+  margin: 3rem 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.form__input {
+  display: block;
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: inherit;
+  padding: 1.25rem 1.75rem;
+  border: none;
+  width: 100%;
+  background-color: $primary-color;
+  background-color: #f2f2f2;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-bottom: 3px solid $accent-color;
+    &:invalid {
+      border-bottom: 3px solid #ff7730;
+    }
+  }
+  &::placeholder {
+    color: #bbb;
+  }
+}
+
+.menu_button {
+  position: fixed;
+  height: 10rem;
+  width: 1.75rem;
+  top: calc(50vh - 5rem);
+  display: grid;
+  align-items: center;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 200;
+
+  &__open {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    left: 0;
+    background-color: $accent-color;
+  }
+  &__close {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    right: 0;
+    background-color: $background-color;
+  }
+  &__arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid $background-color;
+    justify-self: start;
+  }
+  &__arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid $accent-color;
+    justify-self: end;
+  }
+}

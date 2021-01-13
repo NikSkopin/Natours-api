@@ -1,0 +1,51 @@
+// 640-959px
+@include mediaMd {
+  .section {
+    &-header {
+      height: 30vw;
+    }
+  }
+
+  .cta {
+    max-width: 60rem;
+    padding: 5rem 3rem;
+  }
+
+  .login-form {
+    max-width: 70%;
+    height: 80%;
+    padding: 5rem 3rem;
+  }
+
+  .menu_button {
+    display: none;
+  }
+
+  .user-view {
+    display: flex;
+    max-width: 90%;
+
+    &__menu {
+      position: initial;
+      display: block;
+      flex: 35% 0 0;
+      height: 100%;
+    }
+    &__content {
+      flex: 1;
+    }
+
+    &__form-container {
+      max-width: 70%;
+      margin: 0 auto;
+    }
+  }
+
+  .card-container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .nav__el {
+    font-size: 1.6rem;
+  }
+}

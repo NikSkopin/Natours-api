@@ -1,0 +1,114 @@
+.user-view {
+  background-color: $primary-color;
+  height: 100%;
+
+  &__menu {
+    background-image: $gradient;
+    padding: 10rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    transition: 0.5s;
+    z-index: 100;
+    &-opened {
+      display: block;
+    }
+    &-closed {
+      display: none;
+    }
+  }
+
+  &__content {
+    padding: 7rem 3rem;
+    &-closed {
+      display: none;
+    }
+  }
+}
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__group:first-child {
+    margin-top: 1.5rem;
+  }
+  &__label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  &__photo-upload {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+  }
+  &__user-photo {
+    height: 7.5rem;
+    width: 7.5rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+  &__upload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    &:focus + label {
+      outline: 3px solid $accent-color;
+      outline-offset: 3px;
+    }
+    & + label {
+      color: $accent-color;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $accent-color;
+      padding: 3px;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+  }
+}
+
+.side-nav {
+  list-style: none;
+  margin: 1rem 0;
+  border-left: 0 solid $primary-color;
+  transition: all 0.3s;
+  text-decoration: none;
+  & svg {
+    height: 1.9rem;
+    width: 1.9rem;
+    min-width: 1.9rem;
+    fill: $background-color;
+    margin-right: 2rem;
+  }
+
+  &__active {
+    border-left: 4px solid $primary-color;
+    & a {
+      transform: translateX(-3px);
+    }
+  }
+
+  & a {
+    &:link,
+    &:visited {
+      padding: 1rem 4rem;
+      display: flex;
+      align-items: center;
+      color: $primary-color;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: 400;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+  }
+}

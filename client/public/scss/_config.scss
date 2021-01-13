@@ -1,0 +1,27 @@
+//fonts and colors
+$primary-color: #fff;
+$secondary-color: #777;
+$accent-color: #55c57a;
+$background-color: #f7f7f7;
+$header-color: #444;
+
+$gradient: linear-gradient(to right bottom, #7dd56f, #28b487);
+
+$primary-font: 'Lato', sans-serif;
+
+// //responsiveness
+@mixin mediaXLg {
+  @media screen and (min-width: 1080px) {
+    @content;
+  }
+}
+@mixin mediaLg {
+  @media screen and (min-width: 960px) {
+    @content;
+  }
+}
+@mixin mediaMd {
+  @media screen and (min-width: 640px) {
+    @content;
+  }
+}

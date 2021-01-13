@@ -1,0 +1,17 @@
+.card-container {
+  list-style-type: none;
+}
+
+.filter-input {
+  width: 20rem;
+  text-transform: uppercase;
+
+  &-container {
+    max-width: 30rem;
+    display: block;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

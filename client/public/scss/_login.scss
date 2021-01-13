@@ -1,0 +1,12 @@
+.login-form {
+  height: 100%;
+  margin: 0 auto;
+  background-color: $primary-color;
+  box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  padding: 3rem 3rem;
+  border-radius: 5px;
+
+  .heading-secondary {
+    margin-bottom: 3rem;
+  }
+}
