@@ -18,7 +18,6 @@ const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 
 const app = express();
-// app.use(require('connect-history-api-fallback')());
 app.enable('trust proxy');
 
 const distDir = path.join(__dirname, 'client/dist');

@@ -33,11 +33,19 @@ const server = app.listen(port, () => {
   console.log(`New App is running on port ${port}...`);
 });
 
-//handle unhandled rejections
+// handle unhandled rejections
 process.on('unhandledRejection', (err) => {
   console.log('UNHANDLED REJECTION. Shutting down...');
   console.log(err.name, err.message);
   server.close(() => {
     process.exit(1);
+  });
+});
+
+// responding to a SIGTERM signal
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECEIVED. Shutting down.');
+  server.close(() => {
+    console.log('Process terminated!');
   });
 });
