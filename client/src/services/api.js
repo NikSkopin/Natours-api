@@ -2,7 +2,8 @@ import axios from 'axios';
 
 export default () => {
   const url = axios.create({
-    baseURL: 'https://hidden-springs-81084.herokuapp.com/api/v1/',
+    // baseURL: 'https://natours-app-vuejs.herokuapp.com/api/v1/',
+    baseURL: 'https://natours-app-vuejs.herokuapp.com/api/v1/',
     // withCredentials: true,
   });
   return url;
