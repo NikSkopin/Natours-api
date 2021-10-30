@@ -41,7 +41,6 @@
 
 <script>
 import AuthService from '@/services/AuthService';
-// import InlineMessage from 'primevue/inlinemessage';
 import Message from 'primevue/message';
 
 export default {
@@ -71,7 +70,6 @@ export default {
     },
   },
   components: {
-    // InlineMessage,
     Message,
   },
 };

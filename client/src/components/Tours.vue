@@ -59,9 +59,10 @@ export default {
       this.tourFilter = null;
       try {
         this.toursList = (await TourService.index()).data.data;
-        this.loaded = true;
       } catch (error) {
         this.error = error.response.data.error;
+      } finally {
+        this.loaded = true;
       }
     },
   },

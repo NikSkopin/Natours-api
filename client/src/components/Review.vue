@@ -27,7 +27,12 @@
 
 <script>
 export default {
-  props: ['review'],
+  props: {
+    review: {
+      type: String,
+      default: '',
+    },
+  },
 };
 </script>
 
